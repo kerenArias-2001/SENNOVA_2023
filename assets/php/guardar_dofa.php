@@ -16,7 +16,7 @@ if ($validar==1) {
     $dofa_verificacion = consulta($miconexion, "ALTER TABLE dofa AUTO_INCREMENT=1");
     //codigo por realizar cambiandoel 1 por un valor de la consulta cuando se valide cuales el valor max
     $dofa_resultado = consulta($miconexion, "UPDATE `dofa` SET `nombre_d`='$nombre_d',`descripcion_d`='$descripcion_d' WHERE id_user_dofa like '{$_SESSION['id_usuario']}'");
-   echo "holaa";
+   echo 1;
 }
 if ($validar==2) {
   $nombre_o = $_POST['nombre_o'];
@@ -39,7 +39,7 @@ if ($validar==3) {
 
 }
 if ($validar==4) {
-  echo "aqui";
+  
   $nombre_a = $_POST['nombre_a'];
   $descripcion_a = $_POST['descripcion_a'];
     //hay que incrementar  desde donde elimina el usuario y asi aprovechar  todo los espacios de la tabla
@@ -80,7 +80,7 @@ if ($validar==7) {
 
 }
 if ($validar==8) {
-  echo "aqui";
+ 
   $nombre_a = $_POST['nombre_a'];
   $descripcion_a = $_POST['descripcion_a'];
     //hay que incrementar  desde donde elimina el usuario y asi aprovechar  todo los espacios de la tabla
