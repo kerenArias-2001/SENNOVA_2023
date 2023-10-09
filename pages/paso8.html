@@ -1,0 +1,480 @@
+<!--
+=========================================================
+* Material Kit 2 - v3.0.4
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/material-kit 
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo_maiz.png" />
+	<link rel="icon" type="image/png" href="../assets/img/logo_maiz.png" />
+	<title id ="cambio1"></title>
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+	<!-- Nucleo Icons -->
+	<link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+	<link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+	<!-- Font Awesome Icons -->
+	<script src="../assets/js/awesome_icons.js" crossorigin="anonymous"></script>
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+	<!-- CSS Files -->
+	<link id="pagestyle" href="../assets/css/material-kit.css?v=3.0.4" rel="stylesheet" />
+	<!-- Nepcha Analytics (nepcha.com) -->
+	<!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+	<script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+	<!-- Boxicons CSS -->
+	<link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../assets/css/estilo_global.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../assets/js/jquery-3.6.0.min.js"></script>
+	<script src="../assets/js/inventarios/enviardatos.js"></script>
+	<script src="../assets/js/inventarios/select_ocultar_mostrar.js"></script>
+	<script src="../assets/js/login_auto.js"></script>
+	<script src="../assets/js/modals_paginas.js"></script>
+	<script src="../assets/admin/actualizacion.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body class="blog-author" id="cambio2" style="background-size: cover;	background-repeat: no-repeat; background-attachment: fixed;	">
+			
+	<!-- Navbar -->
+	<div id="navbar1" class='container position-sticky z-index-sticky top-0'></div>
+	<!-- fin Navbar -->
+
+	<section class="section card opacity-hover-7" style="z-index: 9998; top: 15%">
+		<div class="global-content">
+			<div class="toggle-btn" id="openGuiaPosCosecha" data-bs-toggle="tooltip" data-bs-placement="top"
+				title="Cartilla" style="z-index: 9999">
+				<i class="bx bxs-book"></i>
+			</div>
+		</div>
+	</section>
+		
+	<!-- formulario admin -->
+	<div id='admin' style="display: none;"></div>
+	<!-- formulario admin -->
+
+	<div id="modalContPosCosecha" class="modal_guia">
+		<div class="modal-content_guia">
+			<button onclick="closed()" class="btn btn-xl close_guia bg-gradient-dark">
+				&times;
+			</button>
+			<iframe class="iframe_guia" id="modalFramePosCosecha" src=""></iframe>
+		</div>
+	</div>
+
+	<div class="card1 mx-3 mx-md-8 mt-7 mb-4">
+		<!--     ******** Modal para el video ************ -->
+		<div id="modal" class="modal_guia" onclick="closeModal()">
+
+			<div class="modal-content_guia" style="position: relative; bottom: 30%">
+				<button onclick="closeModal()" class="btn btn-xl close_guia bg-gradient-dark" style="z-index: 99;">
+					&times;
+				</button>
+				<h4 id="cambio8" class="text-center" ></h4>
+				<div id="video-container" style="display: none" class="p-4 card container">
+					<iframe height="450" src="https://www.youtube.com/embed/Ckf9u001HDY" frameborder="50"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function () {
+				$(".btn").on("click", function () {
+					$("#video-container").show();
+				});
+			});
+		</script>
+		<!--     ******** Modal para el video ************ -->
+		<!-- CARD -->
+
+		<section class="card card-body opacity-9 d-flex justify-content-center shadow-lg align-items-center">
+			<!-- div que habilita modal del video -->
+			<div class="container" onclick="openModal()">
+				<button class="btn bg-gradient-success ms-3 btn-icon-only btn-rounded pt-0 btn-outline-success btn-xxl"
+					data-bs-toggle="tooltip" data-bs-placement="left"
+					title="Sugerencia para tomar las muestras de suelo y enviar al laboratorio para realizar el análisis."
+					style="position: absolute; right: -15px; top: -15px; border: 2px solid white;">
+					<i class="fas fa-info p-1 mt-2" aria-hidden="true"></i>
+				</button>
+			</div>
+			<!-- div que habilita modal del video -->
+			<h4 class="text-center mt-3 mb-n3" id="cambio10"></h4>
+			<form onsubmit="return false;">
+				<div class="card-body">
+					<div class="row justify-content-center">
+						<div class="col-md-6 mt-3">
+							<div id="fechainicio" class="share-button2" data-bs-toggle="tooltip"
+								data-bs-placement="top" title="Esta es la fecha de inicio del cronograma de actividades">
+								<div class="share-button2__back">
+								  <a id="fecha_pagina1"style="color: #ffffff; position: relative;"inicial>cargando...</a>
+							  
+								</div>
+								<div class="share-button2__front">
+								  <a style="color: #ffffff; position: relative;">Fecha Inicio</a>
+								</div>
+							  </div>
+
+							<div class="input-group input-group-static">
+								<label id="cambio11" for="fecha_inicio" class="font-weight-bold" data-bs-toggle="tooltip"
+									data-bs-placement="top"
+									title="Es la que determinará fecha inicial de este proceso">
+								</label>
+								<input type="date" id="fecha_inicio" class="form-control" required
+									onchange=" compararFechas()" />
+							</div>
+						</div>
+
+						<div class="col-md-6 mt-3">
+							<div class="input-group input-group-static">
+								<label id="cambio12" for="fecha_final" class="font-weight-bold" data-bs-toggle="tooltip"
+									data-bs-placement="top"	title="Es la que determinará la fecha final de este proceso"></label>
+								<input type="date" id="fecha_final" class="form-control" required
+									onchange=" compararFechas()">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 text-center mt-3 mb-n4" data-bs-toggle="tooltip" data-bs-placement="top"
+						title="Recuerda que las fechas no deben ser inferior a la fecha del análisis del terreno">
+						<button class="btn btn-success" id="boton_t" value="paso8" onclick="guardarfecha()" disabled>
+							<span id="cambio15"></span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</section>
+
+		<section class="row opacity-9">
+			<div class="row col-md-12 mx-auto">
+				<!-- CARD NUMERO 1 -->
+
+				<div class="tambaleo mt-4 col-lg-3">
+					<div class="p-5 card">
+						<style>
+							/* Estilos adicionales para mejorar la apariencia */
+							table {
+								border-collapse: collapse;
+								width: 100%;
+							}
+
+							th,
+							td {
+								border: 1px solid #dddddd;
+								text-align: left;
+								padding: 8px;
+							}
+						</style>
+						<h3 class="text-2xl mt-n3" id="cambio16"></h3>
+						<form id="productForm">
+							<div class="col-md-11">
+								<div class="input-group input-group-static">
+									<label id="cambio17" for="transactionType"></label>
+									<select id="transactionType" onchange="changeForm()"
+										class="form-select form-select-lg mb-2 form-control"
+										aria-label=".form-select-lg example">
+										<option id="cambio18" value="selecciona"></option>
+										<option id="cambio19" value="alquilar_pos_cosecha"></option>
+										<option id="cambio20" value="comprar_pos_cosecha"></option>
+									</select>
+								</div>
+							</div>
+							<div id="alquilerForm" style="display: none">
+								<h3>Alquiler</h3>
+
+								<div class="input-group input-group-static w-90 mb-2">
+									<label for="productNameAlquiler">Nombre del producto:</label>
+									<input type="text" class="form-control" id="productNameAlquiler"
+										placeholder="Digite nombre" required />
+								</div>
+
+								<div class="input-group input-group-static w-90 mb-2">
+									<label for="quantityAlquiler">Cantidad:</label>
+									<input type="number" class="form-control" id="quantityAlquiler" min="1"
+										placeholder="Digite" required />
+								</div>
+
+								<div class="input-group input-group-static mb-2">
+									<label for="rentalTime">Tiempo de alquiler:</label>
+									<input type="text" class="form-control" placeholder="Digite en horas"
+										id="rentalTime" required />
+								</div>
+								<div class="input-group input-group-static mb-2">
+									<label for="rentalTime1">Unidad de medida:</label>
+									<select id="rentalTime1" class="form-select form-select-lg mb-2 form-control"
+										aria-label=".form-select-lg example" required>
+										<option value="">selecciona</option>
+										<option value="Horas">Horas</option>
+										<option value="Días">Días</option>
+										<option value="Semanas">Semanas</option>
+										<option value="Meses">Meses</option>
+									</select>
+								</div>
+
+								<div class="input-group input-group-static mb-2">
+									<label for="pricePerUnitAlquiler">Valor Unitario:</label>
+									<input type="number" class="form-control" placeholder="Digite"
+										id="pricePerUnitAlquiler" min="0" step="0.01" required />
+								</div>
+
+								<button class="btn bg-gradient-success mb-n3 mt-2" onclick="Pos_Cosecha_Alquilar()">
+									Agregar producto
+								</button>
+							</div>
+							<div id="comprarForm" style="display: none">
+								<h3>Comprar</h3>
+								<div class="input-group input-group-static w-90 mb-2">
+									<label for="productNameComprar">Nombre del producto:</label>
+									<input type="text" class="form-control" placeholder="Digite" id="productNameComprar"
+										required />
+								</div>
+
+								<div class="input-group input-group-static w-90 mb-2">
+									<label for="quantityComprar">Cantidad:</label>
+									<input type="number" class="form-control" placeholder="Digite" id="quantityComprar"
+										min="1" required />
+								</div>
+
+								<div class="input-group input-group-static w-90 mb-2">
+									<label for="rentalTime_1">Unidad de medida:</label>
+									<select id="rentalTime_1" class="form-select form-select-lg mb-2 form-control"
+										aria-label=".form-select-lg example" required>
+										<option value="">selecciona</option>
+										<option value="Gramos">Gramos</option>
+										<option value="Kilos">Kilo</option>
+										<option value="Litros">Litros</option>
+										<option value="Mililitros">Mililitros</option>
+										<option value="Galón">Galón</option>
+										<option value="Metros">Metros</option>
+										<option value="Metros Cubicos">Metros Cubicos</option>
+										<option value="Unidad">Unidad</option>
+									</select>
+								</div>
+								<div class="input-group input-group-static mb-2">
+									<label for="pricePerUnitComprar">Valor Unitario:</label>
+									<input type="number" class="form-control" placeholder="Digite"
+										id="pricePerUnitComprar" min="0" step="0.01" required />
+								</div>
+								<button class="btn bg-gradient-success mb-n3 mt-2" onclick="Pos_Cosecha_Comprar()">
+									Agregar producto
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- CARD NUMERO 2 -->
+				<div class="mt-4 col-lg-9">
+					<div class="p-4 card">
+						<div class="mt-2 col">
+							<h3 class="text-2xl" id="cambio21"></h3>
+							<div id="tabla_paso8" class="table-responsive"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- paginacion -->
+		<div class="card row text-center mt-4 align-self-center opacity-hover-7" 
+			style="min-width: 19%; height: 50px; min-height: 50px;	position: sticky; bottom: 5px;	z-index: 100;">
+
+			<div class="col-12" style="padding-top: 7px">
+				<a href="paso7.html">
+					<button class="btn btn-outline-success btn-icon btn-sm" type="button">
+						<div id="cambio29" class="d-flex align-items-center">Anterior</div>
+					</button>
+				</a>
+
+				<!-- Example single danger button -->
+				<div class="btn-group dropdown-center">
+					<button id="seleccion_pagina" class="btn btn-success btn-sm dropdown-toggle" value="paso8"
+						data-bs-toggle="dropdown" aria-expanded="false">
+						<span id=""> paso 8</span>
+					</button>
+					<ul class="dropdown-menu text-center mb-2 pt-3 mt-2 text-center"
+						style="min-width: 49%; width: 19rem">
+						<a href="paso1.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Realizar Análisis del suelo">
+								<div class="d-flex align-items-center">
+									<span id="cambio30"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso2.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Preparar el terreno">
+								<div class="d-flex align-items-center">
+									<span id="cambio31"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso3.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top"
+								title="Instalar Sistema de Riego">
+								<div class="d-flex align-items-center">
+									<span id="cambio32"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso4.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Realizar siembra">
+								<div class="d-flex align-items-center">
+									<span id="cambio33"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso5.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Realizar Fertilización">
+								<div class="d-flex align-items-center">
+									<span id="cambio34"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso6.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top"
+								title="Realizar Control de Plagas y Enfermedades y Enfermedades">
+								<div class="d-flex align-items-center">
+									<span id="cambio35"></span>
+								</div>
+							</button>
+						</a>
+
+						<a href="paso7.html">
+							<button class="btn btn-outline-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Preparar cosecha">
+								<div class="d-flex align-items-center">
+									<span id="cambio36"></span>
+								</div>
+							</button>
+						</a>
+						<a href="paso8.html">
+							<button class="btn bg-gradient-success btn-icon btn-sm" type="button"
+								data-bs-toggle="tooltip" data-bs-placement="top" title="Preparar Pos-Cosecha">
+								<div class="d-flex align-items-center">
+									<span id="cambio37"></span>
+								</div>
+							</button>
+						</a>
+
+					</ul>
+				</div>
+
+				<a href="resultado.html">
+					<button class="btn btn-outline-danger btn-icon btn-sm" type="button">
+						<div class="d-flex align-items-center">
+							<span id="cambio38">Resultado</span>
+						</div>
+					</button>
+				</a>
+			</div>
+		</div>
+		<!-- paginacion -->
+
+		<!-- END CARD -->
+	</div>
+
+	<!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
+	<footer class="footer card bg-white opacity-9 mx-3 mx-md-8">
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-6 mb-4">
+					<a href="../index.html">
+						<img src="../assets/img/logo_maiz.png" class="mb-4 mx-auto" alt="main_logo"
+							style="width: 40px;" />
+					</a>
+					<h5 class="font-weight-bolder mb-4">
+						<span class="text-dark font-weight-bold"><span class="text-success">Planea</span> tu
+							cultivo <br />
+							de maiz</span>
+					</h5>
+				</div>
+
+				<div class="col-md-3 col-sm-6 col-6 mb-4">
+					<div>
+						<h6 id="cambio39" class="text-sm"></h6>
+						<ul class="flex-column ms-n3 nav">
+							<li class="nav-item">
+								<a class="nav-link" href="../index.html"> Inicio </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="muestras.html"> Manual de usuario </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../instructivos/cartilla_digital.html"> Cartilla digital </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 col-6 mb-4">
+					<div>
+						<h6 id="cambio40" class="text-sm">Contacto</h6>
+						<ul class="flex-column ms-n3 nav">
+							<li class="nav-item">
+								<a id="cambio41" class="nav-link">
+									Centro Biotecnológico del Caribe (CBC).
+								</a>
+							</li>
+							<li class="nav-item">
+								<a id="cambio42" class="nav-link"> Km 7 via la paz </a>
+							</li>
+							<li class="nav-item">
+								<a id="cambio43" class="nav-link"> Valledupar - Cesar </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6 col-6 mb-4 d-flex flex-column mx-auto align-items-center">
+					<i class="material-icons opacity-6 me-2 text-success" style="font-size: 50px;">android</i>
+					<h6 id="cambio45" class="text-sm text-dark">PRUEBA NUESTRA APP MOVIL</h6>
+					<a href="https://apk.e-droid.net/apk/app2836560-zhstd8.apk?v=1" class="btn btn-sm bg-gradient-success mb-0 me-1 mt-2 mt-md-0">
+						<i class="material-icons opacity-6 me-2 text-md">download</i>
+						<span  id="cambio46" ></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- END FOOTER 5 w/ DARK BACKGROUND -->
+	<!--   Core JS Files   -->
+	<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+	<script src="../assets/js/inventarios/select_ocultar_mostrar.js"></script>
+	<!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+	<script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+	<script src="../assets/js/menu_global.js"></script>
+	<script src="../assets/js/inventarios/enviardatos.js"></script>
+	<script src="../assets/js/sugerencias/sug_analisis.js"></script>
+	<script src="../assets/js/Cerrarsesion/cerrarsesion.js"></script>
+	<script src="../assets/js/ajax_libs_jquery_3_5_1_jquery_min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../assets/admin/guardar_cambio.js"></script>
+</body>
+
+</html>

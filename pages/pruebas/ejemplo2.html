@@ -1,0 +1,206 @@
+
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alerta con SweetAlert</title>
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+                          
+ 
+   
+</head>
+                           
+<body>
+    <button onclick="mostrarAlerta()">Mostrar Alerta</button>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function mostrarAlerta() {
+            Swal.fire({
+                type: 'success',
+                title: '<h4>Ejemplo de Alerta</h4>',
+                text: 'Esto es una alerta de ejemplo',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Guardar',
+                denyButtonText: `No guardar`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Acción a realizar al hacer clic en "Guardar"
+                    alert('Has seleccionado Guardar');
+                } else if (result.isDenied) {
+                    // Acción a realizar al hacer clic en "No guardar"
+                    alert('Has seleccionado No guardar');
+                } else {
+                    // Acción a realizar al hacer clic en "Cancelar"
+                    alert('Has seleccionado Cancelar');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+$porcentaje_analisis_terreno=number_format(($analisis_terreno/$total_proceso)*100,2) ."%";
+$porcentaje_preparacion=number_format(($preparacion/$total_proceso)*100,2) ."%";
+$porcentaje_siembra=number_format(($siembra/$total_proceso)*100,2) ."%";
+$porcentaje_fertilizacion=number_format(($fertilizacion/$total_proceso)*100,2) ."%";
+$porcentaje_cosecha=number_format(($cosecha/$total_proceso)*100,2) ."%" ;
+$porcentaje_pos_cosecha=number_format(($pos_cosecha/$total_proceso)*100,2) ."%";
+$porcentaje_comencializar=number_format(($comercializar/$total_proceso)*100,2) ."%";
+
+$valores_resultado = array(
+    'valor_analisis' => $analisis_terreno,
+    'valor_preparacion' => $preparacion,
+    'valor_siembra' => $siembra,
+    'valor_fertilizacion' => $fertilizacion ,
+    'valor_cosecha' => $cosecha ,
+    'valor_pos_cosecha' => $pos_cosecha ,
+    'valor_comercializar' => $comercializar,
+    'valor_total_proceso' => $total_proceso,
+    'v_analisis' => $porcentaje_analisis_terreno,
+    'v_preparacion' => $porcentaje_preparacion,
+    'v_siembra' => $porcentaje_siembra,
+    'v_fertilizacion' => $porcentaje_fertilizacion ,
+    'v_cosecha' => $porcentaje_cosecha ,
+    'v_pos_cosecha' => $porcentaje_pos_cosecha ,
+    'v_comercializar' => $porcentaje_comencializar
+
+  );        
+
+
+
+
+
+
+
+
+  <table class="table align-items-center mb-0">
+    <tbody>
+      <tr>
+        <td>
+          <div class="d-flex px-2 py-0">
+            <span class="badge bg-gradient-primary me-3 "id="v_analisis"> </span>
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">Análisis del terreno</h6>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+          <span class="text-xs"id="v_analisis">  </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex px-2 py-0">
+            <span class="badge bg-gradient-secondary me-3" id="v_preparacion"> 15%</span>
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">Preparación del terreno</h6>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+          <span class="text-xs" id="v_preparacion"> 20% </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex px-2 py-0">
+            <span class="badge bg-gradient-info me-3" id="v_siembra"> </span>
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">Proceso de siembra</h6>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+          <span class="text-xs" id="v_siembra"> 13% </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex px-2 py-0">
+            <span class="badge bg-gradient-success me-3" id="v_fertilizacion"> </span>
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">Fertilización</h6>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+          <span class="text-xs" id="v_fertilizacion"> 32% </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex px-2 py-0">
+            <span class="badge bg-gradient-warning me-3 "id="v_cosecha"> </span>
+            <div class="d-flex flex-column justify-content-center">
+              <h6 class="mb-0 text-sm">Cosecha</h6>
+            </div>
+          </div>
+        </td>
+        <td class="align-middle text-center text-sm">
+          <span class="text-xs"  id="v_cosecha"> 20% </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- paginacion -->
+<div class="row card text-center mt-4 page-header opacity-9"
+style=" width: 20rem; min-width: 20rem; height: 50px; min-height: 50px; position: sticky; left: 40.6%; bottom: 5px; z-index: 100;">
+<div class="col-12 mx-auto " style="padding-top: 7px;">
+
+<a href="paso6.html">
+<button class="btn btn-outline-success btn-icon btn-sm" type="button">
+<div class="d-flex align-items-center">
+Imprimir
+</div>
+</button>
+</a>
+
+<a href="">
+<button class="btn btn-outline-success btn-icon  btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="informacion">
+<div class="d-flex align-items-center">
+Guardar
+</div>
+</button>
+</a>
+
+</div>
+</div>
+<!-- paginacion -->
+
+
+<!-- END CARD -->
+</div>
+
+
+$tablaHTML = "<table><thead><tr>";
+  $tablaHTML = "<td><strong>Nombre del Maíz</strong></td>";
+  $tablaHTML = "<td><strong>Precio del Kg de Maíz</strong></td>";
+  $tablaHTML = "<td><strong>Total</strong></td>";
+  $tablaHTML = "</tr></thead>";
+  $tablaHTML = "<tbody><tr>";
+    $tablaHTML = "<td><span id='nombre_producto'>$nombre_producto</span></td>";
+    $tablaHTML = "<td><span id='precio_sembrar' >$precio_sembrar</span></td>";
+    $tablaHTML = "<td><span id='respuesta_valor_maiz'>$respuesta_valor_maiz</span></td>";
+    $tablaHTML = "</tr></tbody>";
+    $tablaHTML .= " <tfoot><tr>";
+    $tablaHTML .= " </tr></tfoot></table>";

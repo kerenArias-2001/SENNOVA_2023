@@ -1,0 +1,945 @@
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular semanas entre fechas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+ 
+   
+</head>
+<body>
+-------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular semanas entre fechas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+ 
+   
+</head>
+<body>
+  <h1>Calcular semanas entre fechas</h1>
+  
+  <label for="fecha1">Fecha 1:</label>
+  <input type="date" id="fecha1">
+  
+  <br>
+  
+  <label for="fecha2">Fecha 2:</label>
+  <input type="date" id="fecha2">
+  
+  <br><br>
+  
+  <button onclick="calcularSemanas()">Calcular semanas</button>
+  
+  <p id="resultado"></p>
+
+  <script>
+    function calcularSemanas() {
+      var fecha1 = new Date(document.getElementById("fecha1").value);
+      var fecha2 = new Date(document.getElementById("fecha2").value);
+      
+      var diferencia_ms = fecha2 - fecha1;
+      var diferencia_dias = Math.floor(diferencia_ms / (1000 * 60 * 60 * 24));
+      
+      var semanas = Math.floor(diferencia_dias / 7);
+      
+      document.getElementById("resultado").textContent = "Número de semanas entre las fechas: " + semanas;
+    }
+  </script>
+</body>
+</html>
+-------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular Semana del Año</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+ 
+   
+</head>
+<body>
+  <h1>Calcular Semana del Año</h1>
+  <label for="fecha">Ingrese una fecha:</label>
+  <input type="date" id="fecha">
+  <button onclick="calcularSemana()">Calcular</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularSemana() {
+      var fechaIngresada = new Date(document.getElementById("fecha").value);
+
+      // Obtenemos el número de la semana utilizando el formato ISO-8601
+      var numeroSemana = getWeekNumber(fechaIngresada);
+
+      // Mostramos el resultado
+      document.getElementById("resultado").innerHTML = "La fecha ingresada pertenece a la semana " + numeroSemana + " del año.";
+    }
+
+    function getWeekNumber(date) {
+      // Creamos una nueva fecha para asegurarnos de que estamos en el mismo año
+      var tempDate = new Date(date.getTime());
+      tempDate.setHours(0, 0, 0, 0);
+
+      // Establecemos el primer día de la semana en lunes
+      var firstDayOfWeek = new Date(tempDate.getFullYear(), 0, 1);
+
+      // Obtenemos la diferencia en días entre la fecha ingresada y el primer día de la semana
+      var diferenciaDias = Math.round((tempDate - firstDayOfWeek) / (1000 * 60 * 60 * 24));
+
+      // Calculamos el número de la semana
+      var numeroSemana = Math.ceil((diferenciaDias + firstDayOfWeek.getDay() + 1) / 7);
+
+      return numeroSemana;
+    }
+  </script>
+</body>
+</html>
+
+
+--------------------------------
+
+
+  <h1>Calcular semanas entre fechas</h1>
+  
+  <label for="fecha1">Fecha 1:</label>
+  <input type="date" id="fecha1">
+  
+  <br>
+  
+  <label for="fecha2">Fecha 2:</label>
+  <input type="date" id="fecha2">
+  
+  <br><br>
+  
+  <button onclick="calcularSemanas()">Calcular semanas</button>
+  
+  <p id="resultado"></p>
+
+  <script>
+    function calcularSemanas() {
+      var fecha1 = new Date(document.getElementById("fecha1").value);
+      var fecha2 = new Date(document.getElementById("fecha2").value);
+      
+      var diferencia_ms = fecha2 - fecha1;
+      var diferencia_dias = Math.floor(diferencia_ms / (1000 * 60 * 60 * 24));
+      
+      var semanas = Math.round(diferencia_dias / 7);
+      
+      document.getElementById("resultado").textContent = "Número de semanas entre las fechas: " + semanas;
+    }
+  </script>
+</body>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular Semana del Año</title>
+  <link rel="stylesheet" href="../assets/css/menu_global.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+ 
+   
+</head>
+<body>
+<br>
+  <h1>Calcular Semana del Año</h1>
+  <label for="fecha">Ingrese una fecha:</label>
+  <input type="date" id="fecha">
+  <button onclick="calcularSemana()">Calcular</button>
+
+  <p id="resultado"></p>
+
+  <p id="resultado1"></p>
+
+  <table id="table1" class=" table-responsive">
+    <tr class="bg-success text-white">
+       <th id="td" rowspan="3">Actividades</th> 
+      <th id="td" rowspan="3">Fecha Inicio</td> 
+      <th id="td" rowspan="3">Fecha Fin</th>
+      <th id="td" colspan="24">MESES</th>
+    </tr>
+    <tr class="bg-success text-white">
+      <th id="td" colspan="4">Mes 1</th>
+      <th id="td" colspan="4">Mes 2</th>
+      <th id="td" colspan="4">Mes 3</th>
+      <th id="td" colspan="4">Mes 4</th>
+      <th id="td" colspan="4">Mes 5</th>
+      <th id="td" colspan="4">Mes 6</th>
+    </tr>
+    <tr class="bg-success text-white">
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+  
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+  
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+  
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+  
+      <td id="td">1</td>
+      <td id="td">2</td>
+      <td id="td">3</td>
+      <td id="td">4</td>
+    </tr>
+  
+    <tr>
+      <th id="th" >Preparación del terreno</th>
+      <th id="th" >Mes 1</th>
+      <th id="th" >Mes 1</th>
+      <td id="td">  <div title="regular tooltip">Hover me</div>
+      </td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+
+  
+    <tr>
+      <th id="th" >Instalar Riego</th>
+      <th id="th" >Mes 1</th>
+      <th id="td" >Mes 2</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+
+  
+    <tr>
+      <th id="th" >Proceso de siembra</th>
+      <th id="td" >Mes 1</th>
+      <th id="td" >Mes 1</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+    <tr>
+      <th id="th" >Realizar Proceso de Fertilización</th>
+      <th id="th" >Mes 2</th>
+      <th id="td" >Mes 3</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+   
+    <tr>
+      <th id="th" >Cuidado y revisión del proceso vegetativo</th>
+      <th id="td" >Mes 3</th>
+      <th id="td" >Mes 3</th><td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+  
+    <tr>
+      <th id="th" >Aplicación de pesticida</th>
+      <th id="td" >Mes 2</th>
+      <th id="td" >Mes 2</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+   
+    <tr>
+      <th id="th" >Revisión en etapa de maduración</th>
+      <th id="td" >Mes 3</th>
+      <th id="td" >Mes 3</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+   
+    <tr>
+      <th id="th" >Preparar cosecha</th>
+      <th id="td" >Mes 3</th>
+      <th id="td" >Mes 3</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+   
+    <tr>
+      <th id="th" >Preparar Pos-Cosecha</th>
+      <th id="td" >Mes 3</th>
+      <th id="td" >Mes 3</th>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+      <td id="td"></td>
+    </tr>
+   
+  
+  </table>
+  <input type="number" id="numberInput" min="0" max="6" />
+  <input type="number" id="cellsInput" min="1" max="6" />
+  <button onclick="colorRow()">Colorear</button>
+  <div class="tooltip-container">
+    <span class="tooltip-trigger">Texto flotante</span>
+    <div class="tooltip-content">
+      <p>
+        Este es un mensaje largo en el tooltip. Puedes agregar todo el texto que desees aquí.
+      </p>
+      <p>
+        Puedes formatear el mensaje según tus necesidades y utilizar etiquetas HTML en el contenido.
+      </p>
+    </div>
+  </div>
+
+  <script>
+function calcularSemanas(fechaIngresada) {
+      var fecha1 = fechaIngresada;
+      var fecha2 = new Date(2023,0,1);//la fechas sumadas
+      
+      var diferencia_ms = fecha2 - fecha1;
+      var diferencia_dias = Math.floor(diferencia_ms / (1000 * 60 * 60 * 24));
+      
+      var semanas = Math.round(diferencia_dias / 7);
+      
+      document.getElementById("resultado1").textContent = "Número de semanas entre las fechas: " + semanas;
+    }
+
+
+    function calcularSemana() {
+       var fechaIngresada = new Date(document.getElementById("fecha").value);
+       calcularSemanas(fechaIngresada);
+    //   // Obtenemos el número de la semana utilizando el formato ISO-8601
+       var numeroSemana = getWeekNumber(fechaIngresada);
+
+    //   // Mostramos el resultado
+      document.getElementById("resultado").innerHTML = "La fecha ingresada pertenece a la semana " + numeroSemana + " del año.";
+     }
+
+     function getWeekNumber(date) {
+    //   // Creamos una nueva fecha para asegurarnos de que estamos en el mismo año
+       var tempDate = new Date(date.getTime());
+       tempDate.setHours(0, 0, 0, 0);
+
+    //   // Establecemos el primer día de la semana en lunes
+       var firstDayOfWeek = new Date(tempDate.getFullYear(), 0, 1);
+
+    //   // Obtenemos la diferencia en días entre la fecha ingresada y el primer día de la semana
+      var diferenciaDias = Math.round((tempDate - firstDayOfWeek) / (1000 * 60 * 60 * 24));
+
+    //   // Calculamos el número de la semana
+       var numeroSemana = Math.ceil((diferenciaDias + firstDayOfWeek.getDay() + 1) / 7);
+       colorRow(numeroSemana);
+      return numeroSemana;
+    }
+
+
+
+
+
+
+//     function colorCells() {
+//   var number = parseInt(document.getElementById("numberInput").value);
+  
+//   var table = document.getElementById("myTable");
+//   var rows = table.getElementsByTagName("tr");
+  
+//   for (var i = 0; i < rows.length; i++) {
+//     var cells = rows[i].getElementsByTagName("td");
+    
+//     for (var j = 0; j < cells.length; j++) {
+//       if (j < number) {
+//         cells[j].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo
+//       } else {
+//         cells[j].style.backgroundColor = "white"; // Restablece el color de las celdas a blanco
+//       }
+//     }
+//   }
+// }
+
+function colorRow(numeroSemana) {
+// 
+  
+  var table = document.getElementById("table1");
+  var rows = table.getElementsByTagName("tr");
+  selectedRow = rows[2];
+  var cells = selectedRow.getElementsByTagName("td");
+  //colocamos los nuero de lasemanaen la fila 0 iniciando desde la columna 0
+ for(var i=0;i<24;i++){
+  cells[i].innerHTML= numeroSemana+i;
+ }
+    //dede aqui simplemente seleccionamos que fila se va a pintar y cuantas celldas se van a seleccionar
+    // number se encarga  de seleccionar las filas
+    var s1=0; //inicia desde que semana inicia
+    var s2=6; // finaliza  columnas de las tabla
+    //selecciona las fila que se va a pintar
+    var number = 1;
+    //cellscolor  selecciona  cuantas celldas se pintaran
+  var cellsToColor = s2;
+
+  for (var j =3; j < 13; j++) {
+      
+      //reseteamos el color hasta el valor de todas las celldas
+      /*for (var i = s1; i < s2; i++) {
+        var number = j;
+      selectedRow = rows[number ];
+      var cells = selectedRow.getElementsByTagName("td");
+        if (i==1) {
+          cells[i].style.backgroundColor = "white"; // Cambia el color de las celdas a amarillo
+        
+        }
+        cells[i].style.backgroundColor = "white"; // Cambia el color de las celdas a amarillo
+       
+      }*/
+      // cargamos el color de  las seldas seleccionadas
+      for (var i1 = 3; i1 < 13; i1++) {
+        var number = j;
+      selectedRow = rows[j];
+      var cells = selectedRow.getElementsByTagName("td");
+
+        if (i1>=3 && i1<=10 && j==3) {
+          cells[i1].style.backgroundColor = "red"; // Cambia el color de las celdas a amarillo        console.log(i); 
+//          cells[i1].title="regular tooltip";
+          cells[i1].classList.add('tooltip-container');
+          mensaje(cells[i1]);
+          console.log("aqui"+i1);
+        }
+        else if (i1>=5 && i1<=6 && j==4) {
+          cells[i1].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=3 && i1<=6 && j==5) {
+          cells[i1].style.backgroundColor = "blue"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=7 && i1<=15 && j==6) {
+          cells[i1].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=9 && i1<=10 && j==7) {
+          cells[i1].style.backgroundColor = "red"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=5 && i1<=6 && j==8) {
+          cells[i1].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=3 && i1<=6 && j==9) {
+          cells[i1].style.backgroundColor = "blue"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=9 && i1<=10 && j==10) {
+          cells[i1].style.backgroundColor = "red"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=5 && i1<=6 && j==11) {
+          cells[i1].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        else if (i1>=3 && i1<=6 && j==12) {
+          cells[i1].style.backgroundColor = "blue"; // Cambia el color de las celdas a amarillo        console.log(i); 
+          console.log("else"+i1);
+        }
+        
+       // console.log("ninguno"+i1);
+       // cells[i1].style.backgroundColor = "yellow"; // Cambia el color de las celdas a amarillo        console.log(i); 
+
+     }
+}
+}
+
+function mensaje(tooltipSpan){
+window.onmousemove = function (e) {
+    var x = e.clientX,
+        y = e.clientY;
+    tooltipSpan.style.top = (y + 20) + 'px';
+    tooltipSpan.style.left = (x + 20) + 'px';
+};
+}
+// Obtener la fecha actual
+var fechaActual = new Date("2023-1-30");
+let dia0 = Math.round(fechaActual.getDate()/7);
+console.log("2023-1-23");
+// Sumar 7 días
+var dias = 1;
+var dias2 = 8;
+fechaActual.setDate(fechaActual.getDate() + dias);
+var dia =fechaActual.getDate();
+var mes=fechaActual.getMonth()+1;
+var year=fechaActual.getFullYear();
+console.log(year+"-"+mes+"-"+dia)
+console.log(fechaActual);
+fechaActual.setDate(fechaActual.getDate() + dias2);
+console.log(fechaActual);
+var dia =fechaActual.getDate();
+var mes=fechaActual.getMonth()+1;
+var year=fechaActual.getFullYear();
+
+
+
+console.log(dia0);
+
+// Sumar 1 semana (7 días)
+//var semanas = 1;
+//fechaActual.setDate(fechaActual.getDate() + (semanas * 7));
+
+// Imprimir la fecha actualizada
+
+
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tooltip with Image</title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+ 
+   
+</head>
+<body>
+ 
+
+
+  
+</body>
+</html>
+
+
+
+
+
+ 
+ html
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title>Guardar una tabla como PDF con colores de columnas en JavaScript</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+     <style>
+         .columna1 {
+             background-color: lightblue;
+         }
+         .columna2 {
+             background-color: lightgreen;
+         }
+         .columna3 {
+             background-color: lightyellow;
+         }
+     </style>
+ </head>
+ <body>
+     <button onclick="guardarComoPDF()">Guardar como PDF</button>
+ 
+     <div id="tablaParaImprimir">
+         <table>
+             <tr>
+                 <th class="columna1">Nombre</th>
+                 <th class="columna2">Apellido</th>
+                 <th class="columna3">Edad</th>
+             </tr>
+             <tr>
+                 <td class="columna1">John</td>
+                 <td class="columna2">Doe</td>
+                 <td class="columna3">25</td>
+             </tr>
+             <tr>
+                 <td class="columna1">Jane</td>
+                 <td class="columna2">Smith</td>
+                 <td class="columna3">30</td>
+             </tr>
+         </table>
+     </div>
+ 
+     <script>
+         function guardarComoPDF() {
+             var doc = new jsPDF();
+             var elementoTabla = document.getElementById("tablaParaImprimir");
+ 
+             // Obtener todas las filas y columnas de la tabla
+             var filas = elementoTabla.getElementsByTagName("tr");
+             var columnas = filas[0].getElementsByTagName("th");
+ 
+             // Define los estilos de la tabla
+             var estilosTabla = {
+                 fontSize: 12,
+                 fontStyle: "bold",
+                 textColor: "#000",
+                 fillColorHeader: "#ccc",
+                 fillColorRows: ["#e6f2ff", "#ccffcc", "#ffffcc"]
+             };
+ 
+             // Define los tamaños de las columnas en función del ancho de la página
+             var anchoPagina = doc.internal.pageSize.getWidth();
+             var anchoColumnas = anchoPagina / columnas.length;
+ 
+             // Agrega las filas y columnas a la tabla
+             var data = [[]];
+             for (var i = 0; i < filas.length; i++) {
+                 var celdas = filas[i].getElementsByTagName("td");
+                 data[i] = [];
+                 for (var j = 0; j < celdas.length; j++) {
+                     data[i][j] = celdas[j].innerText;
+                 }
+             }
+ 
+             // Establece los estilos de la tabla
+             doc.setFontSize(estilosTabla.fontSize);
+             doc.setTextColor(estilosTabla.textColor);
+ 
+             // Agrega los encabezados de columna
+             for (var c = 0; c < columnas.length; c++) {
+                 doc.setFillColor(estilosTabla.fillColorHeader);
+                 doc.rect(c * anchoColumnas, 0, anchoColumnas, 15, "F");
+                 doc.text(columnas[c].innerText, c * anchoColumnas + 5, 10);
+             }
+ 
+             // Agrega las filas de datos
+             for (var r = 0; r < data.length; r++) {
+                 for (var c = 0; c < data[r].length; c++) {
+                     doc.setFillColor(estilosTabla.fillColorRows[c]);
+                     doc.rect(c * anchoColumnas, (r + 1) * 15, anchoColumnas, 15, "F");
+                     doc.text(data[r][c], c * anchoColumnas + 5, (r + 1) * 15 + 10);
+                 }
+             }
+ 
+             // Guarda el archivo PDF
+             doc.save("tabla.pdf");
+         }
+     </script>
+ </body>
+ </html> -->
+
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Comparar Fechas</title>
+  
+</head>
+<body>
+  <h1>Comparar Fechas</h1>
+
+  <label for="input1">Fecha 1:</label>
+  <input type="date" id="input1" onchange="compararFechas()">
+
+  <label for="input2">Fecha 2:</label>
+  <input type="date" id="input2" onchange="compararFechas()">
+
+  <script>
+    function compararFechas() {
+      const fecha1 = new Date(document.getElementById("input1").value);
+      const fecha2 = new Date(document.getElementById("input2").value);
+
+      if (fecha1 > fecha2) {
+        alert("Fecha 1 es mayor que Fecha 2");
+      } else if (fecha1 < fecha2) {
+        alert("Fecha 1 es menor que Fecha 2");
+      } else {
+        alert("Fecha 1 es igual a Fecha 2");
+      }
+    }
+
+ 
+    
+  </script>
+</body>
+</html>
+
+
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Imprimir gráficas</title>
+  <style media="print">
+    /* Estilo para la impresión */
+    .chart-container {
+      width: 500px;
+      height: 500px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="chart1"></canvas>
+  </div>
+  <div class="chart-container">
+    <canvas id="chart2"></canvas>
+  </div>
+
+  <button onclick="printCharts()">Imprimir gráficas</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function printCharts() {
+      window.print();
+    }
+
+    // Datos de ejemplo para las gráficas
+    var chart1Data = {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+      datasets: [{
+        label: 'Ventas',
+        data: [500, 400, 600, 300, 700],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    var chart2Data = {
+      labels: ['Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja'],
+      datasets: [{
+        label: 'Cantidad',
+        data: [10, 20, 15, 25, 30],
+        backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange'],
+        borderColor: 'white',
+        borderWidth: 1
+      }]
+    };
+
+    // Opciones de ejemplo para las gráficas
+    var chartOptions = {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+
+    // Iniciar las gráficas usando Chart.js
+    var chart1 = new Chart(document.getElementById('chart1'), {
+      type: 'bar',
+      data: chart1Data,
+      options: chartOptions
+    });
+
+    var chart2 = new Chart(document.getElementById('chart2'), {
+      type: 'doughnut',
+      data: chart2Data,
+      options: chartOptions
+    });
+  </script>
+</body>
+</html>

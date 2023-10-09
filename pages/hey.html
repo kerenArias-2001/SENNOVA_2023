@@ -1,0 +1,542 @@
+<!-- AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
+
+<!--
+=========================================================
+* Material Kit 2 - v3.0.4
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/material-kit 
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo_maiz.png" />
+	<link rel="icon" type="image/png" href="../assets/img/logo_maiz.png" />
+	<title>Resultado final</title>
+	<!-- Boxicons CSS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.0.0-alpha.12/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.0/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<style>
+	.content_doc {
+		background-color: bisque;
+		margin: 3px;
+		padding: 3px;
+		width: 1000px;
+	}
+
+	.content_tabla1 {
+		background-color: rgb(252, 121, 121);
+		margin: 3px;
+		padding: 3px;
+		border: solid 2px gray;
+		width: auto;
+		text-align: center;
+	}
+
+	.content_tabla2 {
+		background-color: rgb(149, 189, 85);
+		margin: 3px;
+		padding: 3px;
+		border: solid 2px gray;
+		width: auto;
+		text-align: center;
+	}
+
+	.titulo_tabla {
+		background-color: #464e00;
+		border: solid 2px black;
+	}
+
+	tr {
+		background-color: #e2f157;
+		border: solid 2px black;
+	}
+
+	td {
+		width: 400px;
+	}
+
+	.content_tabla3 {
+		background-color: rgb(149, 189, 85);
+		margin: 3px;
+		padding: 3px;
+		border: solid 2px gray;
+		width: auto;
+		text-align: center;
+	}
+</style>
+
+<body id="content1">
+	<div class="content_doc">
+		<div id="contenidoParaImprimir">
+			<div id="imprimir">
+				<h4>RESULTADO FINAL</h4>
+				<div class="content_tabla1">
+					<table onchange="session_start()">
+						<thead>
+							<tr class="titulo_tabla">
+								<th>Proceso (%)</th>
+								<th>Subtotal</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Realizar Análisis del suelo</td>
+								<td>
+									<p id="valor_analisis">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Preparar el terreno</td>
+								<td>
+									<p id="valor_preparacion">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Instalar Sistema de Riego</td>
+								<td>
+									<p id="valor_riego">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Realizar siembra</td>
+								<td>
+									<p id="valor_siembra">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Realizar Fertilización</td>
+								<td>
+									<p id="valor_fertilizacion">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Realizar Control de Plagas y Enfermedades</td>
+								<td>
+									<p id="valor_control">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Preparar Cosecha</td>
+								<td>
+									<p id="valor_cosecha">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>Preparar Pos-Cosecha</td>
+								<td>
+									<p id="valor_pos_cosecha">Valor</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<div>Total</div>
+								</td>
+								<td>
+									<p id="valor_total_proceso">Valor</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="content_tabla2">
+					<table id="table1">
+						<tr>
+							<th rowspan="3">Actividades</th>
+							<!-- 3f -->
+							<th rowspan="3">Fecha Inicio</th>
+							<!-- 3f -->
+							<th rowspan="3">Fecha Fin</th>
+							<!-- 3f -->
+							<th colspan="24">MESES</th>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<h6 id="mes0"></h6>
+							</th>
+							<th colspan="4">
+								<h6 id="mes1"></h6>
+							</th>
+							<th colspan="4">
+								<h6 id="mes2"></h6>
+							</th>
+							<th colspan="4">
+								<h6 id="mes3"></h6>
+							</th>
+							<th colspan="4">
+								<h6 id="mes4"></h6>
+							</th>
+							<th colspan="4">
+								<h6 id="mes5"></h6>
+							</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Realizar Análisis del suelo</th>
+							<th>
+								<h6 id="fecha_inicial_0"></h6>
+							</th>
+							<th>
+								<h6 id="fecha_inicial_1"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar el terreno</th>
+							<th>
+								<h6 id="fecha_inicial"></h6>
+							</th>
+							<th>
+								<h6 id="mes_1"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Instalar Sistema de Riego</th>
+							<th>
+								<h6 id="mes_2"></h6>
+							</th>
+							<th>
+								<h6 id="mes_3"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar siembra</th>
+							<th>
+								<h6 id="mes_4"></h6>
+							</th>
+							<th>
+								<h6 id="mes_5"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar Fertilización</th>
+							<th>
+								<h6 id="mes_6"></h6>
+							</th>
+							<th>
+								<h6 id="mes_7"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar Control de Plagas y Enfermedades</th>
+							<th>
+								<h6 id="mes_8"></h6>
+							</th>
+							<th>
+								<h6 id="mes_9"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar cosecha</th>
+							<th>
+								<h6 id="mes_10"></h6>
+							</th>
+							<th>
+								<h6 id="mes_11"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar Pos-Cosecha</th>
+							<th>
+								<h6 id="mes_12"></h6>
+							</th>
+							<th>
+								<h6 id="mes_13"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="content_tabla3">
+					<div id="tabla_inventario"></div>
+				</div>
+
+				<div class="content_tabla4">
+					<canvas id="grafica_grande"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../assets/js/login_auto.js"></script>
+
+	<script>
+		const timeout = setTimeout(() => {
+				//    document.getElementById('pdf-button').addEventListener('click', function() {
+		const element = document.getElementById("content1"); // Elemento que se convertirá en PDF
+		const options = {
+			margin: 1,
+			filename: "mi_documento.pdf", // Nombre del archivo PDF
+			image: { type: "jpeg", quality: 0.98 }, // Opciones de imagen
+			html2canvas: { scale: 2 }, // Opciones de HTML2Canvas
+			jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }, // Opciones de jsPDF
+		};
+
+		// Crea el PDF y lo guarda o lo muestra en una nueva ventana
+		html2pdf().set(options).from(element).save();
+		//  });
+			}, 4000); // 5000 ms = 5 segundos
+
+			// Validar si el tiempo ha terminado
+			if (timeout) {
+				
+			}
+		// Función para manejar el evento de clic en el botón
+		
+	</script>
+</body>
+
+</html>

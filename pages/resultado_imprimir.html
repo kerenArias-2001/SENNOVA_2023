@@ -1,0 +1,675 @@
+<!-- AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII -->
+
+<!--
+=========================================================
+* Material Kit 2 - v3.0.4
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/material-kit 
+* Copyleft 2023 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyleft notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo_maiz.png" />
+	<link rel="icon" type="image/png" href="../assets/img/logo_maiz.png" />
+	<title>Resultado final</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.0.0-alpha.12/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.0/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.0.0-alpha.12/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.0/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+<style>
+	.content1{
+		background-color: blue;
+		position: relative;
+		top: -31px;
+		width: 531px;
+		height: auto;
+		width: 750px;
+	}
+	.content_doc {
+		background-color: bisque;
+		/* width: 80%; */
+	}
+	.content_print {
+		background-color: #ff0000;
+		/* max-width: 838px; */
+	}
+	.content_tabla1 {
+		background-color: rgb(149, 189, 85);
+		position: relative;
+		/* left: 59px; */
+		/* margin: 3px;
+		padding: 3px; */
+		border: solid 2px gray;
+		/* max-width: 80%; */
+	}
+	.content_tabla2 {
+		background-color: rgb(149, 189, 85);
+		/* left: 40px; */
+		border: solid 2px gray;
+		position: relative;
+		bottom: 311px;
+		/* width: 714px; */
+	}
+	.content_tabla3 {
+		background-color: rgb(149, 189, 85);
+		position: relative;
+		/* left: 0px; */
+		/* margin: 3px;
+		padding: 3px; */
+		border: solid 2px gray;
+		/* max-width: 80%; */
+		width: auto;
+	}
+	tr {
+		background-color: #e2f157;
+		border: solid 2px black;
+	}
+
+	th,
+	td {
+		border: 1px solid #ff0000;
+		text-align: left;
+		padding: 8px;
+	}
+
+	.content_imagen1 {
+		width: 490px;
+		height: 300px;
+		background-color: blueviolet;
+		position: relative;
+		bottom: 2px;
+
+	}
+	.content_imagen2 {
+		width: 349px;
+		height: 300px;
+		background-color: blueviolet;
+		position: relative;
+		bottom: 324px;		
+		left: 489px;
+
+	}
+	canvas {
+		width: 50px;
+		height: 50px;
+	}
+
+
+	.titulo_tabla {
+		background-color: #464e00;
+		border: solid 2px black;
+	}
+</style>
+
+<body id="content1" class="content1">
+
+	<section class="content_doc">
+		<div class="content_print">
+			<div id="imprimir">
+				<h4 style="text-align: center;">RESULTADO FINAL</h4>
+				<div class="content_tabla1">
+				<h5 style="text-align: left">Tabla de valores gastados en cada proceso</h5>
+					<table onchange="session_start()" style="width: 100%;">
+						<tr class="titulo_tabla">
+							<th>(%) Gastado</th>
+							<th>Proceso</th>
+							<th>Subtotal</th>
+						</tr>
+						<tr>
+							<td id="v_analisis"></td>
+							<td>Realizar Análisis del suelo</td>
+							<td id="valor_analisis"></td>
+						</tr>
+						<tr>
+							<td id="v_preparacion"></td>
+							<td>Preparar el terreno</td>
+							<td id="valor_preparacion"></td>
+						</tr>
+						<tr>
+							<td id="v_riego"></td>
+							<td>Instalar Sistema de Riego</td>
+							<td id="valor_riego"></td>
+						</tr>
+						<tr>
+							<td id="v_siembra"></td>
+							<td>Realizar siembra</td>
+							<td id="valor_siembra"></td>
+						</tr>
+						<tr>
+							<td id="v_fertilizacion"></td>
+							<td>Realizar Fertilización</td>
+							<td id="valor_fertilizacion"></td>
+						</tr>
+						<tr>
+							<td id="v_control"></td>
+							<td>Realizar Control de Plagas y Enfermedades</td>
+							<td id="valor_control"></td>
+						</tr>
+						<tr>
+							<td id="v_cosecha"></td>
+							<td>Preparar Cosecha</td>
+							<td id="valor_cosecha"></td>
+						</tr>
+						<tr>
+							<td id="v_pos_cosecha"></td>
+							<td>Preparar Pos-Cosecha</td>
+							<td id="valor_pos_cosecha"></td>
+						</tr>
+						<tr>
+							<td>Total</td>
+							<td id="valor_total_proceso"></td>
+						</tr>
+					</table>
+				</div><br>
+				<div class="content_imagen1">
+					<h5 style="text-align: left">Gráfico de barra de cada proceso</h5>
+					<canvas id="grafica_grande" style="display: block;width: 490px;height: 280px;"></canvas>
+				</div>
+				<div class="content_imagen2">
+					<h5 style="text-align: left">Gráfico circular de las ganancias</h5>
+					<canvas id="grafica2_grande" style="display: block;width: 380px;height: 245px;"></canvas>
+				</div>
+				<div class="content_tabla2">
+					<h5 style="text-align: left">Costos de producción</h5>
+					<div id="tabla_inventario"></div>
+				</div>
+				<div class="content_tabla3">
+					<h5 style="text-align: left">Cronograma de actividades de cada proceso</h5>
+					<table id="table1">
+						<tr>
+							<th class="" rowspan="3">Actividades</th>
+							<!-- 3f -->
+							<th class="" rowspan="3">Fecha Inicio</th>
+							<!-- 3f -->
+							<th class="" rowspan="3">Fecha Fin</th>
+							<!-- 3f -->
+							<th colspan="24">MESES</th>
+						</tr>
+						<tr class="bg-success">
+							<th class="" colspan="4">
+								<h6 id="mes0"></h6>
+							</th>
+							<th class="" colspan="4">
+								<h6 id="mes1"></h6>
+							</th>
+							<th class="" colspan="4">
+								<h6 id="mes2"></h6>
+							</th>
+							<th class="" colspan="4">
+								<h6 id="mes3"></h6>
+							</th>
+							<th class="" colspan="4">
+								<h6 id="mes4"></h6>
+							</th>
+							<th class="" colspan="4">
+								<h6 id="mes5"></h6>
+							</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Realizar Análisis del suelo</th>
+							<th>
+								<h6 id="fecha_inicial_0"></h6>
+							</th>
+							<th>
+								<h6 id="fecha_inicial_1"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar el terreno</th>
+							<th>
+								<h6 id="fecha_inicial"></h6>
+							</th>
+							<th>
+								<h6 id="mes_1"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Instalar Sistema de Riego</th>
+							<th>
+								<h6 id="mes_2"></h6>
+							</th>
+							<th>
+								<h6 id="mes_3"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar siembra</th>
+							<th>
+								<h6 id="mes_4"></h6>
+							</th>
+							<th>
+								<h6 id="mes_5"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar Fertilización</th>
+							<th>
+								<h6 id="mes_6"></h6>
+							</th>
+							<th>
+								<h6 id="mes_7"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Realizar Control de Plagas y Enfermedades</th>
+							<th>
+								<h6 id="mes_8"></h6>
+							</th>
+							<th>
+								<h6 id="mes_9"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar cosecha</th>
+							<th>
+								<h6 id="mes_10"></h6>
+							</th>
+							<th>
+								<h6 id="mes_11"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<th>Preparar Pos-Cosecha</th>
+							<th>
+								<h6 id="mes_12"></h6>
+							</th>
+							<th>
+								<h6 id="mes_13"></h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+
+
+
+
+
+
+				<td style="border: none; position: sticky; left: 1px">
+					<button id="validar_planeacion">
+						<span>Validar Planeación</span>
+					</button>
+				</td>
+			</div>
+		</div>
+	</section>
+
+
+	<div style="display: none" class="mt-4 col-lg-3">
+		<div class="col-11 mt-2 mx-auto " type="button" id="grafica_primerboton"
+			onclick="ocultarmostarelementos('verelemento1')" value="mostrar_grafica_primerboton">
+			<div class="grafica_botones">
+				<h6 class="">Gráfica de barras</h6>
+				<div id="grafica_boton"
+					style="background-image: url(../assets/img/barras.jpeg);height: 15vh;  background-size: cover; background-repeat: no-repeat;">
+				</div>
+			</div>
+		</div>
+		<div class="col-11 mt-2 mx-auto " type="button" id="grafica_segundoboton"
+			onclick="ocultarmostarelementos('verelemento2')" value="mostrar_grafica_segundoboton">
+			<div class="grafica_botones ">
+				<h6 class="">Gráfica circular </h6>
+				<div id="grafica2_boton"
+					style="background-image: url(../assets/img/grafico_circular.png);height: 15vh;  background-size: cover; background-repeat: no-repeat;">
+				</div>
+			</div>
+		</div>
+		<div class="col-11 mt-2 mx-auto" type="button" id="grafica_tercerboton"
+			onclick="ocultarmostarelementos('verelemento3')" value="mostrar_grafica_segundoboton">
+			<div class="grafica_botones">
+				<h6>Cronograma de actividades</h6>
+				<div
+					style="background-image: url(../assets/img/cronograma.png);height: 15vh;background-size: cover;background-repeat: no-repeat;">
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+	<!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
+	<script src="../assets/js/login_auto.js"></script>
+
+	<script>
+		const timeout = setTimeout(() => {
+			//    document.getElementById('pdf-button').addEventListener('click', function() {
+			//const element = document.getElementById("content1"); // Elemento que se convertirá en PDF
+			const elements = [
+				document.getElementById("content1"),
+				document.getElementById("content2"),
+				// Agrega más elementos si es necesario
+			];
+			const options = {
+				margin: 1,
+				filename: "mi_documento.pdf", // Nombre del archivo PDF
+				image: { type: "jpeg", quality: 0.98 }, // Opciones de imagen
+				html2canvas: { scale: 2 }, // Opciones de HTML2Canvas
+				jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }, // Opciones de jsPDF
+			};
+
+			// Crea el PDF y lo guarda o lo muestra en una nueva ventana
+			for (const element of elements) {
+				
+				html2pdf().set(options).from(element).save();
+			}
+			
+			//  });
+		}, 4000); // 5000 ms = 5 segundos
+
+		// Validar si el tiempo ha terminado
+		if (timeout) {
+
+		}
+		// Función para manejar el evento de clic en el botón
+
+	</script>
+	<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+	<script src="../assets/js/modals_paginas.js"></script>
+	<!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+	<script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+	<script src="../assets/js/menu_global.js"></script>
+</body>
+
+</html>
+<script>
+   
+      // Obtén los elementos que se convertirán en PDF
+    
+      // Configuración común para todas las páginas del PDF
+      const options = {
+        margin: 1,
+        filename: "mis_documentos.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
+
+      // Función para crear un PDF a partir de un elemento
+      function createPDF(element) {
+        const pdf = html2pdf().set(options).from(element);
+
+        pdf.outputPdf(function (pdfData) {
+          const blob = new Blob([pdfData], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+
+          // Crea un enlace para descargar el PDF
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "mi_documento.pdf";
+          a.style.display = "none";
+
+          // Agrega el enlace al documento y haz clic en él para descargar el PDF
+          document.body.appendChild(a);
+          a.click();
+
+          // Libera el objeto URL y elimina el enlace
+          URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        });
+      }
+
+      // Genera un PDF para cada elemento
+      for (const element of elements) {
+        createPDF(element);
+      }
+   
+  </script>

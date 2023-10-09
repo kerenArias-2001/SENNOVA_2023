@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar/Ocultar Div en Scroll</title>
+    <style>
+  .div_oculto {
+    display: none;
+    width: 100%;
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+    </style>
+</head>
+
+<body>
+  <div class="div_oculto" id="div_oculto">
+    Contenido del div que se mostrará y ocultará después de un tiempo de inactividad en el scroll.
+  </div>
+    <script>
+      let timeoutId; // Variable para almacenar el ID del temporizador
+      const div_oculto = document.getElementById('div_oculto');
+
+      // Función para mostrar el div
+      function mostrarDiv() {
+          div_oculto.style.display = 'block';
+      }
+
+      // Función para ocultar el div después de 3 segundos de inactividad del mouse
+      function ocultarDiv() {
+          div_oculto.style.display = 'none';
+      }
+
+      // Función para manejar el movimiento del cursor
+      function handleMouseMove() {
+          mostrarDiv(); // Mostrar el div cuando se mueve el cursor del mouse
+
+          // Borrar el temporizador si ya estaba en funcionamiento
+          if (timeoutId) {
+              clearTimeout(timeoutId);
+          }
+
+          // Establecer un nuevo temporizador para ocultar el div después de 3 segundos de inactividad del mouse
+          timeoutId = setTimeout(ocultarDiv, 3000);
+      }
+
+      // Agregar un evento de escucha al evento "mousemove" del documento
+      document.addEventListener('mousemove', handleMouseMove);
+
+    </script>
+</body>
+</html>

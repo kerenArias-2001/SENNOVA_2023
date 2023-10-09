@@ -1,0 +1,80 @@
+1. HTML:
+html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejemplo</title>
+    <style>
+      .print-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .print-content h1 {
+        margin-top: 30px;
+      }
+
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+      
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="print-content">
+      <h1>Mi Tabla</h1>
+      <table id="myTable">
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+        <tr>
+          <td>Juan</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>María</td>
+          <td>30</td>
+        </tr>
+      </table>
+
+      <h1>Mi Gráfico</h1>
+      <canvas id="myChart"></canvas>
+
+      <button onclick="window.print()" class="no-print">Imprimir</button>
+    </div>
+
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        // Configuración del gráfico
+        type: 'bar',
+        data: {
+          labels: ['Juan', 'María'],
+          datasets: [{
+            label: 'Edades',
+            data: [25, 30],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
+
+

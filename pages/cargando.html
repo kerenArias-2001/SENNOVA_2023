@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Iniciando sesión</title>
+		<link rel="stylesheet" href="../assets/css/estilo_global.css" />
+	</head>
+	<body>
+		<div id="modal_inicio"><div class="bounce2" id="cont_textos"></div></div>
+		<script>
+
+			const timeout = setTimeout(() => {
+				console.log("El tiempo ha terminado");
+				window.location.href = "../pages/muestras.html";
+			}, 4000); // 5000 ms = 5 segundos
+
+			// Validar si el tiempo ha terminado
+			if (timeout) {
+				console.log("El tiempo aún no ha terminado");
+				var contenedor_textos = document.getElementById("cont_textos");
+				var modal_inicio = document.getElementById("modal_inicio");
+				modal_inicio.style.display = "block";
+				var cadena = [
+					"I",
+					"n",
+					"i",
+					"c",
+					"i",
+					"a",
+					"n",
+					"d",
+					"o",
+					".",
+					".",
+					".",
+				];
+
+				for (let contador = 0; contador < 12; contador++) {
+					var texto_flotante = document.createElement("span");
+					console.log(contador);
+					texto_flotante.setAttribute("class", "letter2");
+					texto_flotante.innerText = cadena[contador];
+					contenedor_textos.appendChild(texto_flotante);
+				}
+			}
+		</script>
+	</body>
+</html>
