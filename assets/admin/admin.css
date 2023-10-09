@@ -1,0 +1,38 @@
+
+    .container{
+     display: flex;
+     width: 100%;
+     padding: 0;
+}
+ .choice2{
+     height: auto;
+     box-sizing: border-box;
+     padding: 0;
+     overflow: hidden;
+     float: left;
+     align-items: center;
+     transition: width 0.2s;
+     border-radius:3px;
+}
+ .expand2{
+     width: 65%;
+}
+ .unset2{
+     width: 16%;
+     color: black !important;
+     background-color: #ddd !important;
+}
+ .small2{
+     width: 5%;
+     background-color: #ddd !important;
+}
+ .small2>div{
+     opacity: 0;
+}
+ .unset2 > div > p{
+     opacity: 0;
+}
+ .expand2 > div {
+     transition-delay: 200ms;
+     opacity: 1;
+}
