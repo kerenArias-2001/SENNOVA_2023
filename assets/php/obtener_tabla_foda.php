@@ -5,12 +5,12 @@
       $busqueda = consulta($miconexion, "SELECT * FROM dofa WHERE id_user_dofa like '{$_SESSION['id_usuario']}'");
 
       $fila1 = $busqueda -> fetch_assoc();
-      $nombre_d = $fila1['nombre__f'];
-      $descripcion_d=$fila1['descripcion__f'];
+      $nombre_f = $fila1['nombre__f'];
+      $descripcion_f=$fila1['descripcion__f'];
       $nombre_o = $fila1['nombre__o'];
       $descripcion_o=$fila1['descripcion__o'];
-      $nombre_f = $fila1['nombre__d'];
-      $descripcion_f=$fila1['descripcion__d'];
+      $nombre_d = $fila1['nombre__d'];
+      $descripcion_d=$fila1['descripcion__d'];
       $nombre_a = $fila1['nombre__a'];
       $descripcion_a=$fila1['descripcion__a'];
     //-----------------------tabla de costos-----------------------------
