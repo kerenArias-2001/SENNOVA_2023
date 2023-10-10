@@ -37,7 +37,7 @@
      $tablaHTML.= " <tr>";
      $tablaHTML.= " <td><strong>Área del terreno</strong></td>";
      $tablaHTML.= " <td><strong>Kg para Comprar</strong></td>";
-     $tablaHTML.= " <td><strong>Distancia entre semillas</strong></td>";
+     $tablaHTML.= " <td><strong>Distancia entre plantas</strong></td>";
      $tablaHTML.= " <td><strong>Distancia entre surcos</strong></td>";
      $tablaHTML.= " <td><strong>Cantidad de plantas</strong></td>";
      $tablaHTML.= " <td><strong>Toneladas en cosecha</strong></td>";
